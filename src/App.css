@@ -1,0 +1,12 @@
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #03040a;
+}
+
+.app canvas {
+  display: block;
+  outline: none;
+}

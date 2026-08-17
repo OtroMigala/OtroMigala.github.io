@@ -1,0 +1,72 @@
+.hover-label {
+  position: relative;
+  width: 90px;
+  height: 22px;
+  pointer-events: none;
+  font-family: var(--font-display);
+}
+
+.hover-label__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.hover-label__dot {
+  fill: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hover-label__seg {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px var(--accent));
+}
+
+.hover-label__seg--diagonal {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.22s ease-out;
+}
+
+.hover-label__seg--horizontal {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  transition: stroke-dashoffset 0.2s ease-out 0.22s;
+}
+
+.hover-label__text {
+  position: absolute;
+  left: 51px;
+  top: 1px;
+  transform: translateY(-50%);
+  display: inline-block;
+  white-space: nowrap;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(4, 6, 12, 0.6);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.4s steps(9, end) 0.42s;
+}
+
+.hover-label.is-visible .hover-label__dot {
+  opacity: 1;
+}
+
+.hover-label.is-visible .hover-label__seg--diagonal,
+.hover-label.is-visible .hover-label__seg--horizontal {
+  stroke-dashoffset: 0;
+}
+
+.hover-label.is-visible .hover-label__text {
+  clip-path: inset(0 0 0 0);
+}
